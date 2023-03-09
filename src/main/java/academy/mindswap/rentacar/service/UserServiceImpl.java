@@ -1,6 +1,5 @@
 package academy.mindswap.rentacar.service;
 
-import academy.mindswap.rentacar.dto.UserCreateDto;
 import academy.mindswap.rentacar.dto.UserDto;
 import academy.mindswap.rentacar.model.User;
 import academy.mindswap.rentacar.repository.UserRepository;
@@ -9,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -24,11 +22,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto createUser(UserCreateDto userCreateDto) {
-        if (!userCreateDto.getPassword().equals(userCreateDto.getRetypedPassword())) {
+    public UserDto createUser(UserDto userDto) {
+        if (!userDto.getPassword().equals(userDto.getRetypedPassword())) {
             throw new IllegalArgumentException("Passwords do not match");
         }
-        User user = userConverter.fromUserCreateDtoToEntity(userCreateDto);
+        User user = userConverter.fromUserDtoToEntity(userDto);
         user = userRepository.save(user);
         return userConverter.fromUserEntityToUserDto(user);
     }
@@ -49,7 +47,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto updateUser(Long id, UserCreateDto userDto) {
+    public UserDto updateUser(Long id, UserDto userDto) {
         User user = userRepository.getReferenceById(id);
         user.setFirstName(userDto.getFirstName());
         user.setLastName(userDto.getLastName());

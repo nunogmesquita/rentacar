@@ -1,15 +1,12 @@
 package academy.mindswap.rentacar.converter;
 
-import academy.mindswap.rentacar.dto.UserCreateDto;
 import academy.mindswap.rentacar.dto.UserDto;
 import academy.mindswap.rentacar.model.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 //v@Component
 public class UserConverter {
-
     @Autowired
     ObjectMapper objectMapper;
 
@@ -23,15 +20,7 @@ public class UserConverter {
                 .build();
     }
 
-    public User fromUserDtoToUserEntity(UserDto userDto) {
-        return User.builder()
-                .firstName(userDto.getFirstName())
-                .lastName(userDto.getLastName())
-                .email(userDto.getEmail())
-                .build();
-    }
-
-    public User fromUserCreateDtoToEntity(UserCreateDto userDto){
+    public User fromUserDtoToEntity(UserDto userDto){
         return User.builder()
                 .firstName(userDto.getFirstName())
                 .lastName(userDto.getLastName())
