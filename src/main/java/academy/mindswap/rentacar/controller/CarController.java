@@ -38,7 +38,7 @@ public class CarController {
     }
 
     @PostMapping
-    public ResponseEntity<CarDto> createUser(@Valid @RequestBody CarDto car, BindingResult bindingResult) {
+    public ResponseEntity<CarDto> createCar(@Valid @RequestBody CarDto car, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
 
             List<FieldError> errors = bindingResult.getFieldErrors();
@@ -57,7 +57,7 @@ public class CarController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<CarDto> updateUser(@PathVariable Long id, @Valid @RequestBody CarDto car, BindingResult bindingResult){
+    public ResponseEntity<CarDto> updateCar(@PathVariable Long id, @Valid @RequestBody CarDto car, BindingResult bindingResult){
         if (bindingResult.hasErrors()) {
 
             List<FieldError> errors = bindingResult.getFieldErrors();
