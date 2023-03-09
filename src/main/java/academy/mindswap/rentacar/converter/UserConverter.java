@@ -1,4 +1,4 @@
-package converter;
+package academy.mindswap.rentacar.converter;
 
 import academy.mindswap.rentacar.dto.UserCreateDto;
 import academy.mindswap.rentacar.dto.UserDto;
@@ -37,6 +37,7 @@ public class UserConverter {
                 .lastName(userDto.getLastName())
                 .email(userDto.getEmail())
                 .password(userDto.getPassword())
+
                 .role(userDto.getRole())
                 .build();
     }
