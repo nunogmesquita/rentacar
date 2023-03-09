@@ -27,8 +27,8 @@ public class CarController {
 
     @GetMapping("")
     public ResponseEntity<List<CarDto>> getAllCars() {
-        List<CarDto> userDtos = carService.getAllCars();
-        return new ResponseEntity<>(userDtos, HttpStatus.OK);
+        List<CarDto> carDtos = carService.getAllCars();
+        return new ResponseEntity<>(carDtos, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
