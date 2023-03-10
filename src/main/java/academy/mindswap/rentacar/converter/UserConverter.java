@@ -1,5 +1,6 @@
 package academy.mindswap.rentacar.converter;
 
+import academy.mindswap.rentacar.dto.UserCreateDto;
 import academy.mindswap.rentacar.dto.UserDto;
 import academy.mindswap.rentacar.model.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -20,7 +21,7 @@ public class UserConverter {
                 .build();
     }
 
-    public User fromUserDtoToEntity(UserDto userDto){
+    public User fromUserCreateDtoToEntity(UserCreateDto userDto){
         return User.builder()
                 .firstName(userDto.getFirstName())
                 .lastName(userDto.getLastName())

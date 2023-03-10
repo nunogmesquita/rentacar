@@ -26,13 +26,4 @@ public class UserDto {
 
     @NotBlank(message = "Must have role")
     private String role;
-
-    @Min(value = 8, message = "Password must be at least 8 characters long")
-    @NotBlank (message = "Must have password")
-    private String password;
-
-    @Min(value = 8, message = "Password must be at least 8 characters long")
-    @NotBlank (message = "Must have password")
-    private String retypedPassword;
-
 }
