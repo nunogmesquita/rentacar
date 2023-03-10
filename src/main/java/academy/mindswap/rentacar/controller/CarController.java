@@ -1,10 +1,7 @@
 package academy.mindswap.rentacar.controller;
 
 import academy.mindswap.rentacar.dto.CarDto;
-import academy.mindswap.rentacar.dto.UserDto;
-import academy.mindswap.rentacar.model.Car;
 import academy.mindswap.rentacar.service.CarService;
-import academy.mindswap.rentacar.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -50,14 +47,14 @@ public class CarController {
         return new ResponseEntity<>(savedCar, HttpStatus.CREATED);
     }
 
-    @DeleteMapping ("/{id}")
-    public ResponseEntity<CarDto> deleteCar(@PathVariable Long id){
+    @DeleteMapping("/{id}")
+    public ResponseEntity<CarDto> deleteCar(@PathVariable Long id) {
         carService.deleteCar(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<CarDto> updateCar(@PathVariable Long id, @Valid @RequestBody CarDto car, BindingResult bindingResult){
+    public ResponseEntity<CarDto> updateCar(@PathVariable Long id, @Valid @RequestBody CarDto car, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
 
             List<FieldError> errors = bindingResult.getFieldErrors();
