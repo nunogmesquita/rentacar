@@ -36,7 +36,7 @@ public class RentalController {
     }
 
     @PostMapping
-    public ResponseEntity<RentalDto> createUser(@Valid @RequestBody RentalDto user, BindingResult bindingResult) {
+    public ResponseEntity<RentalDto> createRental(@Valid @RequestBody RentalDto rental, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
 
             List<FieldError> errors = bindingResult.getFieldErrors();
@@ -44,7 +44,7 @@ public class RentalController {
                 System.out.println(error.getObjectName() + " - " + error.getDefaultMessage());
             }
         }
-        RentalDto savedRental = rentalService.createRental(user);
+        RentalDto savedRental = rentalService.createRental(rental);
         return new ResponseEntity<>(savedRental, HttpStatus.CREATED);
     }
 
@@ -66,5 +66,4 @@ public class RentalController {
         RentalDto uptadedRental = rentalService.updateRental(id, user);
         return new ResponseEntity<>(uptadedRental, HttpStatus.ACCEPTED);
     }
-
 }

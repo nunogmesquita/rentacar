@@ -4,7 +4,6 @@ import academy.mindswap.rentacar.converter.CarConverter;
 import academy.mindswap.rentacar.dto.CarDto;
 import academy.mindswap.rentacar.model.Car;
 import academy.mindswap.rentacar.repository.CarRepository;
-import academy.mindswap.rentacar.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

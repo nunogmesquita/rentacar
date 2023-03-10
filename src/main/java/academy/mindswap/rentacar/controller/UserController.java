@@ -51,7 +51,7 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
     @PutMapping("/{id}")
-    public ResponseEntity<UserDto> updateUser(@PathVariable Long id, @Valid @RequestBody UserDto user, BindingResult bindingResult){
+    public ResponseEntity<UserDto> updateUser(@PathVariable Long id, @Valid @RequestBody UserCreateDto user, BindingResult bindingResult){
         if (bindingResult.hasErrors()) {
 
             List<FieldError> errors = bindingResult.getFieldErrors();

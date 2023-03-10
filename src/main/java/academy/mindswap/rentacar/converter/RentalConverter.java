@@ -1,7 +1,9 @@
 package academy.mindswap.rentacar.converter;
 
 import academy.mindswap.rentacar.dto.RentalDto;
+import academy.mindswap.rentacar.model.Car;
 import academy.mindswap.rentacar.model.Rental;
+import academy.mindswap.rentacar.model.User;
 
 public class RentalConverter {
 
@@ -10,16 +12,18 @@ public class RentalConverter {
                 .price(rental.getPrice())
                 .entryDate(rental.getEntryDate())
                 .finishDate(rental.getFinishDate())
-               // falta ainda 2 metodos para relacionar com as foreygn keys
+                .carId(rental.getCar().getId())
+                .userId(rental.getUser().getId())
                 .build();
     }
 
-    public Rental fromRentalDtoToEntity(RentalDto rentalDto){
+    public Rental fromRentalDtoToEntity(RentalDto rentalDto, Car car, User user){
         return Rental.builder()
                 .price(rentalDto.getPrice())
                 .entryDate(rentalDto.getEntryDate())
                 .finishDate(rentalDto.getFinishDate())
-                // falta ainda 2 metodos para relacionar com as foreygn keys
+                .car(car)
+                .user(user)
                 .build();
     }
 }
