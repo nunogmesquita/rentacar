@@ -12,7 +12,7 @@ public class CarConverter {
                 .build();
     }
 
-    public Car fromCarDtoToEntity(CarDto carDto){
+    public Car fromCarDtoToEntity(CarDto carDto) {
         return Car.builder()
                 .brand(carDto.getBrand())
                 .model(carDto.getModel())

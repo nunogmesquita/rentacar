@@ -2,6 +2,7 @@ package academy.mindswap.rentacar.service;
 
 import academy.mindswap.rentacar.dto.UserCreateDto;
 import academy.mindswap.rentacar.dto.UserDto;
+import academy.mindswap.rentacar.exception.IdNotExist;
 import academy.mindswap.rentacar.model.User;
 import academy.mindswap.rentacar.repository.UserRepository;
 import academy.mindswap.rentacar.converter.UserConverter;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -34,8 +36,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto getUserById(Long userId) {
-        User user = userRepository.getReferenceById(userId);
-        return userConverter.fromUserEntityToUserDto(user);
+        Optional<User> user = userRepository.findUserById(userId);
+        if (user.isEmpty()) {
+            throw new IdNotExist("User not found");
+        }
+        return userConverter.fromUserEntityToUserDto(user.get());
     }
 
     @Override

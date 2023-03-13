@@ -17,7 +17,7 @@ public class RentalConverter {
                 .build();
     }
 
-    public Rental fromRentalDtoToEntity(RentalDto rentalDto, Car car, User user){
+    public Rental fromRentalDtoToEntity(RentalDto rentalDto, Car car, User user) {
         return Rental.builder()
                 .price(rentalDto.getPrice())
                 .entryDate(rentalDto.getEntryDate())

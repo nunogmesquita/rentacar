@@ -1,15 +1,14 @@
 package academy.mindswap.rentacar.service;
 
 import academy.mindswap.rentacar.dto.CarDto;
-import academy.mindswap.rentacar.dto.UserDto;
-import academy.mindswap.rentacar.model.Car;
+import academy.mindswap.rentacar.exception.IdNotExist;
 
 import java.util.List;
 
 public interface CarService {
     CarDto createCar(CarDto car);
 
-    CarDto getCarById(Long carId);
+    CarDto getCarById(Long carId) throws IdNotExist;
 
     List<CarDto> getAllCars();
 

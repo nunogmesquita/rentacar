@@ -19,5 +19,4 @@ public class CarDto {
     @NotBlank(message = "Must have a license plate")
     private String licensePlate;
 
-
 }

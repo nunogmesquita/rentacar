@@ -16,7 +16,7 @@ import java.util.List;
 @RequestMapping("/rentals")
 public class RentalController {
 
-    private RentalService rentalService;
+    private final RentalService rentalService;
 
     @Autowired
     public RentalController(RentalService rentalService) {

@@ -16,7 +16,7 @@ public class UserConverter {
                 .build();
     }
 
-    public User fromUserCreateDtoToEntity(UserCreateDto userDto){
+    public User fromUserCreateDtoToEntity(UserCreateDto userDto) {
         return User.builder()
                 .firstName(userDto.getFirstName())
                 .lastName(userDto.getLastName())

@@ -2,6 +2,7 @@ package academy.mindswap.rentacar.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.util.*;
 
 @Getter
